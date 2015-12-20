@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @football_player.name %>
+</p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @football_player.team %>
+</p>
+
+<p>
+  <strong>Jersey number:</strong>
+  <%= @football_player.jersey_number %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @football_player.salary %>
+</p>
+
+<p>
+  <strong>Rookie:</strong>
+  <%= @football_player.rookie %>
+</p>
+
+<%= link_to 'Edit', edit_football_player_path(@football_player) %> |
+<%= link_to 'Back', football_players_path %>

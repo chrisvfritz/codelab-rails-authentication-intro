@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Football Players</h1>
+<div class="table-hover">
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Team</th>
+        <th>Jersey number</th>
+        <th>Salary</th>
+        <th>Rookie</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @football_players.each do |football_player| %>
+        <tr>
+          <td><%= football_player.name %></td>
+          <td><%= football_player.team %></td>
+          <td><%= football_player.jersey_number %></td>
+          <td><%= football_player.salary %></td>
+          <td><%= football_player.rookie %></td>
+          <td><%= link_to 'Show', football_player %></td>
+          <td><%= link_to 'Edit', edit_football_player_path(football_player) %></td>
+          <td><%= link_to 'Destroy', football_player, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to 'New Football player', new_football_player_path %>
