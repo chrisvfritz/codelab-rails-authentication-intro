@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(version: 20151218222517) do
 
   create_table "football_players", force: :cascade do |t|
-    t.string   "name",          default: "",    null: false
-    t.string   "team",          default: "",    null: false
-    t.integer  "jersey_number",                 null: false
-    t.float    "salary",                        null: false
+    t.string   "name",                          null: false
+    t.string   "team",                          null: false
+    t.integer  "jersey_number", default: 0,     null: false
+    t.decimal  "salary",        default: 0.0,   null: false
     t.boolean  "rookie",        default: false, null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
