@@ -1,8 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+<%= form_tag football_players_path, method: :get do %>
+  <%= label_tag(:name_search, "Name") %>
+  <%= text_field_tag :name_search, params[:name_search] %>
+  <%= label_tag(:jersey_search, "Jersey #") %>
+  <%= number_field_tag :jersey_search, params[:jersey_search] %>
+  <%= label_tag(:team_search, "Team") %>
+  <%= text_field_tag :team_search, params[:team_search] %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <h1>Listing Football Players</h1>
 <div class="table-hover">
-
 
   <table class="table">
     <thead>

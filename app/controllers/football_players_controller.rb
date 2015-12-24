@@ -4,8 +4,23 @@ class FootballPlayersController < ApplicationController
   # GET /football_players
   # GET /football_players.json
   def index
+  if params[:name_search].present?
+    @football_players = FootballPlayer.
+    #  where(rookie: false).
+      where('LOWER(name) LIKE LOWER(?)', "%#{params[:name_search]}%").
+      where('LOWER(team) LIKE LOWER(?)', "%#{params[:team_search]}%").
+      where('jersey_number = ?', "#{params[:jersey_search]}").
+    #  where('created_at > ?', 1.week.ago).
+      order(created_at: :desc)
+      # returns all the published posts where the value of
+      # `params[:title_search]` case-insensitively matches the
+      # title of the post, with results listed in descending
+      # order by when they were created (i.e. showing most
+      # recently created posts first)
+  else
     @football_players = FootballPlayer.all
   end
+end
 
   # GET /football_players/1
   # GET /football_players/1.json
