@@ -7,11 +7,10 @@
   <%= number_field_tag :jersey_search, params[:jersey_search] %>
   <%= label_tag(:team_search, "Team") %>
   <%= text_field_tag :team_search, params[:team_search] %>
-<!--
-  <%= label_tag(:is_rookie, "Rookie") %>
-  <%= hidden_field_tag :is_rookie, false %>
-  <%= check_box_tag :is_rookie, true, params[:is_rookie] == 'true' %>
--->
+
+  <%= label_tag(:is_rookie, "Rookie?") %>
+  <%= select_tag :is_rookie, options_for_select(["", "true", "false" ],"") %>
+
   <%= submit_tag("Search") %>
 <% end %>
 

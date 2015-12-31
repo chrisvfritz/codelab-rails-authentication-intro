@@ -18,7 +18,7 @@ class FootballPlayersController < ApplicationController
   end
   if params[:is_rookie].present?
     @football_players = @football_players.
-      where(rookie: params[:is_rookie])
+      where(rookie: params[:is_rookie]=='true')
   end
   @football_players = @football_players.order(created_at: :desc)
 end
