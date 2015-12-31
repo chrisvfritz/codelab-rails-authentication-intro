@@ -5,23 +5,23 @@ class FootballPlayersController < ApplicationController
   # GET /football_players.json
   def index
     @football_players = FootballPlayer.all
-  if params[:name_search].present?
-    @football_players = @football_players.where('LOWER(name) LIKE LOWER(?)', "%#{params[:name_search]}%")
+    if params[:name_search].present?
+      @football_players = @football_players.where('LOWER(name) LIKE LOWER(?)', "%#{params[:name_search]}%")
+    end
+    if params[:jersey_search].present?
+      @football_players = @football_players.
+        where(jersey_number: params[:jersey_search])
+    end
+    if params[:name_search].present?
+      @football_players = @football_players.
+        where('LOWER(team) LIKE LOWER(?)', "%#{params[:team_search]}%")
+    end
+    if params[:is_rookie].present?
+      @football_players = @football_players.
+        where(rookie: params[:is_rookie]=='true')
+    end
+    @football_players = @football_players.order(created_at: :desc)
   end
-  if params[:jersey_search].present?
-    @football_players = @football_players.
-      where(jersey_number: params[:jersey_search])
-  end
-  if params[:name_search].present?
-    @football_players = @football_players.
-      where('LOWER(team) LIKE LOWER(?)', "%#{params[:team_search]}%")
-  end
-  if params[:is_rookie].present?
-    @football_players = @football_players.
-      where(rookie: params[:is_rookie]=='true')
-  end
-  @football_players = @football_players.order(created_at: :desc)
-end
 
   # GET /football_players/1
   # GET /football_players/1.json
