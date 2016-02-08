@@ -1,4 +1,5 @@
 class FootballPlayersController < ApplicationController
+  before_action :only_allow_signed_in_users, except: [:index, :show]
   before_action :set_football_player, only: [:show, :edit, :update, :destroy]
 
   # GET /football_players
